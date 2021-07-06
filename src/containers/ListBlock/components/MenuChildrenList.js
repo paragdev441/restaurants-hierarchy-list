@@ -1,7 +1,13 @@
 import React from "react";
 import TreeItem from "@material-ui/lab/TreeItem";
 
-const MenuChildren = ({ children }) => {
+/**
+ * Showing list of menu's children names and children's children names
+ * Recursively call the MenuChildrenList until all children's name are printed
+ * @param {array} props
+ * @returns
+ */
+const MenuChildrenList = ({ children }) => {
   if (children && children.length !== 0) {
     return children.map((child, index) => {
       return (
@@ -11,7 +17,7 @@ const MenuChildren = ({ children }) => {
               nodeId={`${JSON.stringify(child)}${index}`}
               label={child.name}
             >
-              {MenuChildren(child.children)}
+              {MenuChildrenList(child.children)}
             </TreeItem>
           ) : null}
         </React.Fragment>
@@ -20,4 +26,4 @@ const MenuChildren = ({ children }) => {
   }
 };
 
-export default MenuChildren;
+export default MenuChildrenList;

@@ -3,6 +3,13 @@ import TreeItem from "@material-ui/lab/TreeItem";
 import { Draggable } from "react-beautiful-dnd";
 import MenuList from "./MenuList";
 
+/**
+ * Showing list of restaurent names with
+ * each nested item contains list of menu items
+ * Each restaurent (with its children) act a draggable element (Consumer)
+ * @param {array} props
+ * @returns
+ */
 const RestaurentList = ({ restaurents }) => {
   return restaurents.map(({ RestaurantName, menu }, index) => {
     return (

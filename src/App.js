@@ -5,9 +5,15 @@ import axios from "axios";
 import "./styles.css";
 import ListBlock from "./containers/ListBlock";
 
+/**
+ * 1. Creating Drabble List of Restaurents & their sub childs by using restaurents data from a given api's endpoint
+ * 2. Responsible for showing and handling state of list items
+ * @returns ReactElement
+ */
 export default function App() {
   const [restaurents, setRestaurents] = React.useState([]);
 
+  /** Initializing the restaurents state from data which is received from an Api */
   useEffect(async () => {
     const {
       data: { body },
@@ -16,6 +22,11 @@ export default function App() {
     console.log(restaurents);
   }, []);
 
+  /**
+   * EventHandler for onDragEnd event
+   * Moving the restaurent item(block) from its original place to the position where mouse pointer points
+   * @param {object} param
+   */
   const handleOnDragEnd = (param) => {
     let tempRestaurents = restaurents;
     const srcIndex = param.source.index;
@@ -27,6 +38,10 @@ export default function App() {
     }
   };
 
+  /** Returning ReactELement ListBlock wrapped inside the DragDropContect (similarly to React’s Context API)
+   *  DragDropContext:- Provide ablility to use the library (Provider)
+   *  Droppable:- The Area where our items can be moved around inside (Consumer)
+   */
   return (
     <div>
       <DragDropContext onDragEnd={handleOnDragEnd}>

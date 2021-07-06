@@ -6,7 +6,13 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import RestaurentList from "./components/RestaurentList";
 
-const ListBlock = ({ restaurents, setRestaurents, provided }) => {
+/**
+ *  Responsible for toggling on or off of hierarchical list's items at every level.
+ *  Used TreeView API (https://material-ui.com/api/tree-item/) to show tree list
+ * @param {array, object} props
+ * @returns
+ */
+const ListBlock = ({ restaurents, provided }) => {
   // const classes = useStyles();
   const [expanded, setExpanded] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
@@ -19,6 +25,7 @@ const ListBlock = ({ restaurents, setRestaurents, provided }) => {
     setSelected(nodeIds);
   };
 
+  /** Showing restaurents hierarchical list */
   return (
     <TreeView
       className="characters"
