@@ -34,7 +34,7 @@ export default function App() {
     let tempRestaurents = restaurents;
     const srcIndex = param.source.index;
     const destIndex = param.destination?.index;
-    if (destIndex) {
+    if (destIndex !== undefined) {
       const [recordedItem] = tempRestaurents.splice(srcIndex, 1);
       tempRestaurents.splice(destIndex, 0, recordedItem);
       localStorage.setItem("restaurents", JSON.stringify(tempRestaurents));
