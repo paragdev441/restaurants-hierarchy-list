@@ -7,7 +7,7 @@ restaurants-hierarchy-list
 ---
 
 - [Installation](#installation)
-- [Usage](#usage)
+- [Documentation](#usage)
 
 ## Installation
 
